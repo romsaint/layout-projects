@@ -1,0 +1,528 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl
+):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+:root{
+    --text-color: #111827;
+    --header-height: 192px;
+    --site-padding: 24px 192px;
+    --nav-height: 44px;
+    --header-info-height: 76px;
+    --main-width: 1536px;
+    --border-radius: 16px;
+
+    --line-height-big: 40px;
+    --line-height-medium-big: 36px;
+    --line-height-medium: 36px;
+    --line-height-small: 20px;
+
+    --text-size-small: 16px;
+    --text-size-small-medium: 20px;
+    --text-size-medium: 24px;
+    --text-size-big: 36px;
+
+    --white-gray-color: #F9FAFB;
+    --purple-color: #8B5CF6;
+    --main-color-gray: #E5E7EB;
+
+}
+
+* {
+    box-sizing: border-box;
+    color: var(--text-color);
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.header{
+    width: 100%;
+    height: var(--header-height);
+    padding: var(--site-padding);
+    background-color: var(--white-gray-color);
+}
+.header-info{
+    display: flex;
+    height: var(--header-info-height);
+    justify-content: space-between;
+}
+.header-brand{
+    display: flex;
+    align-items: center;
+    width: 305px;
+}
+.header-logo{
+    margin-right: 15px;
+}
+.header-brand-text{
+    font-size: var(--text-size-medium);
+}
+
+
+.header-right-info{
+    width: 349px;
+    display: flex;
+    justify-content: end;
+}
+.header-right-part{
+    display: flex;
+    justify-content: space-between;
+    width: 716px;
+    text-align: end;
+    align-items: center;
+}
+.header-right-call{
+    display: flex;
+    flex-direction: column;
+}
+.header-right-phone-number{
+    font-size: 36px;
+    line-height: var(--line-height-big);
+}
+.header-right-phone-info{
+    font-size: var(--text-size-medium);
+}
+.header-right-info-text{
+    font-size: var(--text-size-small);
+    text-align: end;
+}
+
+.header-nav-actions{
+    height: var(--nav-height);
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+.nav{
+    width: 372px;
+    align-items: center;
+}
+.nav-list{
+    display: flex;
+    column-gap: 24px;
+    height: 100%;
+    align-items: center;
+}
+.nav-item{
+    font-size: var(--text-size-small);
+}
+.nav-item:hover{
+    color: var(--purple-color);
+}
+.nav-current-page{
+    color: var(--purple-color);
+}
+.nav-current-page {
+    text-decoration: none;
+    position: relative; /* Для позиционирования псевдоэлемента */
+}
+
+
+.btn-header-action{
+    outline: none;
+    border: none;
+    background-color: var(--purple-color);
+    padding: 10px 28px 10px 28px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+
+
+.main-container{
+    background-color: var(--main-color-gray);
+}
+.main{
+    padding: 72px 192px;
+    gap: 72px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-hero{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.hero-image-info{
+    width: 50%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.hero-info-text-big{
+    font-size: var(--text-size-big);
+    line-height: var(--line-height-big);
+}
+.hero-info-text-small{
+    font-size: var(--text-size-small-medium);
+    line-height: 28px;
+}
+.hero-delivery-image{
+    height: 352px;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    object-position: top center;
+}
+
+.hero-shipping-calculator{
+    padding: 24px 27px;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    background-color: var(--white-gray-color);
+    border-radius: var(--border-radius);
+}
+.hero-form-text{
+    width: 358px;
+    gap: 16px;
+}
+.hero-form-text-calc-big{
+    font-size: 30px;
+    line-height: var(--line-height-big);
+}
+.hero-form-text-calc-small{
+    font-size: var(--text-size-small);
+    line-height: 24px;
+}
+.hero-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.hero-form-inputs{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 336px;
+}
+.hero-form-full-input input{
+    width: 100%;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #aeaeae;
+}
+.hero-form-half-input {
+    display: flex;
+    gap: 24px;
+}
+.hero-form-half-input input{
+    width: 50%;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #aeaeae;
+}
+input:focus{
+    outline: none;
+}
+
+.nav-link-item.nav-current-page{
+    border-bottom: 1px dashed var(--purple-color);
+}
+
+.hero-form-submit-btn{
+    padding: 10px 28px;
+    border-radius: 4px;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--purple-color);
+    color: white;
+    cursor: pointer;
+}
+
+.benefits{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.benefits-text{
+    font-size: 30px;
+    line-height: var(--line-height-medium-big);
+}
+.benefits-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+.benefits-info-text-big{
+    font-size: 21px;
+    line-height: 32px;
+}
+.benefits-info-text-small{
+    line-height: 12px;
+    font-size: 14px;
+}
+.benefits-info-inner{
+    display: flex;
+    gap: 12px;
+}
+.benefits-text-container{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.benefits-info-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+
+
+@media screen and (max-width: 1333px){
+    .header-right-info{
+        width: auto;
+    }
+    .header-brand-text{
+        font-size: var(--text-size-small-medium);
+    }
+    .header-right-phone-number{
+        font-size: 25px;
+    }
+    .header-right-phone-info{
+        font-size: 17px;
+    }
+
+    .main-hero{
+        flex-direction: column;
+    }
+    .hero-image-info{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .hero-info-text-big{
+        line-height: var(--line-height-medium-big);
+    }
+    .hero-delivery-image{
+        height: 100%;
+    }
+    .hero-image{
+        height: auto;
+    }
+    .hero-info{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .hero-image, .hero-info{
+        width: 50%;
+    }
+    .hero-shipping-calculator{
+        width: 100%;
+    }
+    
+    .hero-form-inputs, .hero-form-submit{
+        width: 606px;
+        margin: 0 auto;
+    }
+    .hero-form{
+        gap: 28px;
+    }
+    .benefits-info{
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+    }
+}    
+@media screen and (max-width: 1230px){
+    .benefits-svg-container, .benefits-svg-container svg{
+        height: 120px;
+        width: 120px;
+    }
+    .benefits-info-text{
+        width: 200px;
+    }
+    .btn-header-action{
+        height: 100%;
+    }
+    .header-logo svg{
+        width: 40px;
+    }
+    .header-right-vertical-line svg{
+        height: 60px;
+    }
+    .header-brand-text{
+        font-size: 18px;
+    }
+    .btn-header-action{
+        padding: 7px 20px;
+    }
+    .header-right-info-text{
+        font-size: 13px;
+    }
+    .header-right-phone-number{
+        font-size: var(--text-size-small-medium);
+    }
+    .header-right-phone-info{
+        font-size: 14px;
+    }
+    .hero-form-inputs{
+        width: auto;
+        margin: 0;
+    }
+    .hero-form-submit{
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 1030px){
+    .benefits-svg-container, .benefits-svg-container svg{
+        height: 140px;
+        width: 140px;
+    }
+    .benefits-info-text{
+        width: 100%;
+    }
+    .benefits-info{
+        grid-template-columns: 1fr;
+    }
+    .header-brand{
+        width: 250px;
+    }
+    .header-logo svg{
+        width: 30px;
+    }
+    .header-brand-text{
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .header-right-info-text{
+        font-size: 12px;
+        line-height: 13px;
+    }
+    .header-right-phone-info{
+        font-size: 13px;
+        line-height: 13px;
+    }
+    .header-right-phone-number{
+        font-size: 17px;
+        line-height: 30px;
+    }
+    .btn-header-action{
+        padding: 4px 14px;
+    }
+    .hero-image-info{
+        display: flex;
+        flex-direction: column;
+    }
+    .hero-info, .hero-image{
+        width: 100%;
+    }
+    .hero-info-text-big{
+        line-height: 18px;
+        font-size: 18px;
+    }
+    .hero-info-text-small{
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .hero-form-text-calc-big{
+        font-size: 24px;
+        line-height: 24px;
+    }
+    .hero-form-text-calc-small{
+        font-size: 14px;
+        line-height: 15px;
+    }
+}
